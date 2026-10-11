@@ -102,7 +102,7 @@
 
   <script>
     // REPLACE THIS WITH YOUR DEPLOYED GOOGLE APPS SCRIPT URL
-    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxR0loDake4O7A0M3vkXEsWNrUnJRG-k9YDNoKbdhpLknwRX3fUiSmt3yvyqADrgOXK/exec";
 
     const form = document.getElementById('rsvpForm');
     const submitBtn = document.getElementById('submitBtn');
@@ -118,8 +118,7 @@
       const payload = {
         name: document.getElementById('name').value,
         attending: document.getElementById('attending').value,
-        plusOne: document.getElementById('plusOne').value,
-        dietary: document.getElementById('dietary').value
+        plusOne: document.getElementById('noOfAttendees').value
       };
 
       fetch(SCRIPT_URL, {
