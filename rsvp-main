@@ -90,13 +90,8 @@
       </div>
 
       <div class="form-group">
-        <label for="plusOne">Plus One Name (If applicable)</label>
-        <input type="text" id="plusOne" name="plusOne" placeholder="Optional">
-      </div>
-
-      <div class="form-group">
-        <label for="dietary">Dietary Restrictions / Allergies</label>
-        <textarea id="dietary" name="dietary" rows="3" placeholder="Vegetarian, Halal, Nut allergy, etc."></textarea>
+        <label for="noOfAttendees">No Of Attendees</label>
+        <input type="text" id="noOfAttendees" name="noOfAttendees" placeholder="Optional">
       </div>
 
       <button type="submit" id="submitBtn">Send RSVP</button>
