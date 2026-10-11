@@ -66,19 +66,47 @@
       text-align: center;
       font-weight: bold;
     }
+    /* Floating Music Button Styling */
+    #musicPlayer {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ffffff;
+      padding: 10px 16px;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      border: 1px solid #e0dad0;
+      transition: background 0.3s;
+    }
+    #musicPlayer:hover {
+      background: #f0ede6;
+    }
   </style>
 </head>
 <body>
 
+  <!-- Floating Music Toggle Button -->
+  <div id="musicPlayer">
+    <span id="playIcon">🎵</span>
+    <span id="musicText">Play Music</span>
+  </div>
+
+  <!-- Hidden Audio Element linked to GitHub Raw File -->
+  <audio id="bgMusic" loop>
+    <source src="https://raw.githubusercontent.com/pocotacojpn/wedding-rsvp/refs/heads/main/nanti_kita_seperti_ini.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <div class="container">
     <h1>Celebration of Love</h1>
     <p class="subtitle">Please RSVP by filling out the form below</p>
-
-  <div>
-    <audio autoplay loop>
-      <source src="https://raw.githubusercontent.com/pocotacojpn/wedding-rsvp/refs/heads/main/nanti_kita_seperti_ini.mp3" type="audio/mp3">
-    </audio>
-  </div>
 
     <form id="rsvpForm">
       <div class="form-group">
@@ -107,6 +135,30 @@
   </div>
 
   <script>
+    // Music Player Logic
+    const musicPlayer = document.getElementById('musicPlayer');
+    const bgMusic = document.getElementById('bgMusic');
+    const musicText = document.getElementById('musicText');
+    const playIcon = document.getElementById('playIcon');
+    let isPlaying = false;
+
+    musicPlayer.addEventListener('click', function() {
+      if (!isPlaying) {
+        bgMusic.play().then(() => {
+          isPlaying = true;
+          musicText.innerText = "Pause Music";
+          playIcon.innerText = "⏸️";
+        }).catch(error => {
+          console.log("Playback blocked:", error);
+        });
+      } else {
+        bgMusic.pause();
+        isPlaying = false;
+        musicText.innerText = "Play Music";
+        playIcon.innerText = "🎵";
+      }
+    });
+    
     // REPLACE THIS WITH YOUR DEPLOYED GOOGLE APPS SCRIPT URL
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuaxJir8ML0VCe-LEHDy2SxWCwOiFinlWRlNmdJS4abibpNTKrv1esqr_jHy5rIAdT/exec";
 
