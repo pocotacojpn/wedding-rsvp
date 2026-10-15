@@ -66,9 +66,9 @@
       });
 
         // Automatically load about.html into the placeholder
-    fetch('about.html')
+    fetch('secondpage.html')
     .then(response => response.text())
     .then(data => {
-        document.getElementById('about-placeholder').innerHTML = data;
+        document.getElementById('page2-placeholder').innerHTML = data;
     });
     });
