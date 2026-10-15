@@ -65,10 +65,10 @@
         submitBtn.innerText = "Send RSVP";
       });
 
-        // Automatically load about.html into the placeholder
-    fetch('pages/page2.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('page2-placeholder').innerHTML = data;
-    });
+    // Automatically load page2.html into the placeholder
+        fetch('pages/page2.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('page2-placeholder').innerHTML = data;
+        });
     });
