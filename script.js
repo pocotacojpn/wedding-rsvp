@@ -80,6 +80,6 @@
     
     // Load your separate section files when the page loads
     loadSection('pages/page2.html', 'page2-placeholder');
-    // loadSection('sections/contact.html', 'contact-container');
+    loadSection('pages/rsvp-form.html', 'rsvp-placeholder');
 
     });
