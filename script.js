@@ -66,7 +66,7 @@
       });
 
         // Automatically load about.html into the placeholder
-    fetch('page2.html')
+    fetch('pages/page2.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('page2-placeholder').innerHTML = data;
