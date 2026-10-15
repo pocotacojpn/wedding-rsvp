@@ -28,20 +28,20 @@
     const form = document.getElementById('rsvpForm');
     const submitBtn = document.getElementById('submitBtn');
     const statusMessage = document.getElementById('statusMessage');
-
+    
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-
+    
       submitBtn.disabled = true;
       submitBtn.innerText = "Sending...";
       statusMessage.innerText = "";
-
+    
       const payload = {
         name: document.getElementById('name').value,
         attending: document.getElementById('attending').value,
         noOfAttendees: document.getElementById('noOfAttendees').value
       };
-
+    
       fetch(SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors', // Bypasses CORS restrictions for Google Apps Script
@@ -64,8 +64,12 @@
         submitBtn.disabled = false;
         submitBtn.innerText = "Send RSVP";
       });
-
-    // Function to load external HTML files into a target element
+    }); // <--- Properly closed form listener here
+    
+    
+    // ==========================================
+    // 3. EXTERNAL SECTION LOADER LOGIC
+    // ==========================================
     function loadSection(file, targetId) {
         fetch(file)
             .then(response => {
@@ -78,7 +82,7 @@
             .catch(error => console.error('Error:', error));
     }
     
-    // Load your separate section files when the page loads
+    // Load separate section files when the page opens
     loadSection('pages/page2.html', 'page2-placeholder');
     loadSection('pages/rsvp-form.html', 'rsvp-placeholder');
 
