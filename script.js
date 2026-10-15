@@ -64,4 +64,11 @@
         submitBtn.disabled = false;
         submitBtn.innerText = "Send RSVP";
       });
+
+        // Automatically load about.html into the placeholder
+    fetch('about.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('about-placeholder').innerHTML = data;
+    });
     });
