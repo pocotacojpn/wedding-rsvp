@@ -65,4 +65,21 @@
         submitBtn.innerText = "Send RSVP";
       });
 
+    // Function to load external HTML files into a target element
+    function loadSection(file, targetId) {
+        fetch(file)
+            .then(response => {
+                if (!response.ok) throw new Error(`Could not load ${file}`);
+                return response.text();
+            })
+            .then(html => {
+                document.getElementById(targetId).innerHTML = html;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+    
+    // Load your separate section files when the page loads
+    loadSection('pages/page2.html', 'page2-placeholder');
+    // loadSection('sections/contact.html', 'contact-container');
+
     });
