@@ -27,7 +27,35 @@
   </audio>
 
   <!-- ================================RSVP FORM START================================ -->
-  <div id="rsvp-placeholder"></div>
+  <div class="container">
+    <h1>Celebration of Love</h1>
+    <p class="subtitle">Please RSVP by filling out the form below</p>
+
+    <form id="rsvpForm">
+      <div class="form-group">
+        <label for="name">Your Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="e.g. Jane Doe">
+      </div>
+
+      <div class="form-group">
+        <label for="attending">Will you be attending?</label>
+        <select id="attending" name="attending" required>
+          <option value="">-- Please Select --</option>
+          <option value="Yes">Joyfully Accepts</option>
+          <option value="No">Regretfully Declines</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="noOfAttendees">No Of Attendees</label>
+        <input type="integer" id="noOfAttendees" name="noOfAttendees" placeholder="Optional">
+      </div>
+
+      <button type="submit" id="submitBtn">Send RSVP</button>
+    </form>
+    
+    <div id="statusMessage"></div>
+  </div>
   <!-- ================================RSVP FORM END================================ -->
 
   
